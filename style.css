@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,500,700');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Nunito', sans-serif;
+}
+
+html, body {
+	background-color: #0e0e0e;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.main-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 5rem;
+	padding: 2rem;
+	height: 80%;
+	width: 800px;
+	place-items: center;
+}
+
+.check-components {
+	display: flex;
+	flex-direction: row;
+	gap: 3rem;
+}
+
+
+
+/* Toggler component */
+.toggler-component {
+	padding: .5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+.toggler-component > .toggler-hidden {
+	position: absolute;
+	left: -100vw;
+}
+
+.toggler-component > .toggler-title {
+	display: grid;
+	font-size: .850rem;
+	color: #e8e8e8;
+	place-items: center;
+} 
+
+.toggler-component > .toggler {
+	position: relative;
+	background: linear-gradient(to left, #1f1f1f 50%, #1c6de1 50%) right;
+	background-size: 200% 100%;
+	height: 18px;
+	width: 35px;
+	cursor: pointer;
+	border-radius: 8px;
+	transition: all 250ms;
+	opacity: 0.6;
+}
+
+.toggler-component > .toggler:before {
+	content: 'I';
+	display: grid;
+	place-items: center;
+	font-size: 12px;
+	border-radius: 8px;
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #3d3d3d;
+	color: white;
+	transition: all 250ms;
+}
+
+.toggler-component > input:checked ~ .toggler:before {
+	right: -1px;
+}
+
+.toggler-component > input:checked ~ .toggler {
+	background-position: left;
+	opacity: 1;
+}
+
+
+
+
+/* Checkbox component */
+.checkbox-component {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: .75rem;
+}
+
+.checkbox-component > .checkbox-hidden {
+	position: absolute;
+	left: -100vw;
+}
+
+.checkbox-component > .checkbox-title {
+	font-size: .850rem;
+	color: #e8e8e8;
+} 
+
+.checkbox-component > .checkbox {
+	position: relative;
+	background: linear-gradient(-135deg, #1f1f1f 50%, #1c6de1 50%) top;
+	background-size: 300% 300%;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	border-radius: 3px;
+	transition: all 250ms;
+	opacity: 0.6;
+}
+
+.checkbox-component > .checkbox:after {
+	content: '✔';
+	position: absolute;
+	font-weight: 800;
+	height: 18px;
+	width: 18px;
+	color: white;
+	opacity: 0;
+	scale: 0.6;
+	transition: all 150ms;
+	display: grid;
+	place-items: center;
+	top: -1.5px;
+}
+
+.checkbox-component > input:checked ~ .checkbox {
+	background-position: bottom;
+	opacity: 1;
+	animation: checkbox-check 250ms;
+}
+
+.checkbox-component > input:checked ~ .checkbox:after {
+	opacity: 1;
+}
+
+@keyframes checkbox-check {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.2); }
+	100% { transform: scale(1); }
+}
+
+
+
+
+/* Radio button component */
+.radio-component {
+	padding: .5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: .75rem;
+}
+
+.radio-component > .radio-hidden {
+	position: absolute;
+	left: -100vw;
+}
+
+.radio-component > .radio-title {
+	font-size: .850rem;
+	color: #e8e8e8;
+} 
+
+.radio-component > .radio {
+	height: 18px;
+	width: 18px;
+	position: relative;
+	border-radius: 50%;
+	cursor: pointer;
+	background: linear-gradient(to right, #1f1f1f 50%, #1c6de1 50%) left;
+	background-size: 200% 100%;
+	transition: all 250ms;
+}
+
+.radio-component > .radio:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	background: linear-gradient(to top, transparent 50%, #1f1f1f 50%) bottom;
+	background-size: 100% 220%;
+	transition: all 100ms;
+	transition-delay: 250ms;
+}
+
+.radio-component > input:checked ~ .radio {
+	background-position: right;
+}
+
+.radio-component > input:checked ~ .radio:after {
+	background-position: top;
+}
+
+
+
+/* Progress component */
+.progress-component {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 360px;
+} 
+
+.progress-component > .progress-bar {
+	position: relative;
+	height: 5px;
+	width: 100%;
+	background: #1f1f1f;
+	border-radius: 3px;
+	transition: all 250ms;
+}
+
+.progress-component > .progress-bar:before {
+	content: '';
+	position: absolute;
+	height: 5px;
+	background-color: #1c6de1;
+	width: calc(1% * var(--p));
+	border-radius: 3px;
+	transition: all 250ms;
+}
+
+.progress-component > .progress-title:before {
+	counter-reset: prog var(--p);
+	content: counter(prog) '%';
+	font-size: 1rem;
+	color: #e8e8e8;
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+	width: 100%;
+}
+
+
+/* Tag components */
+.tag-components {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	align-items: center;
+	width: 360px;
+	height: 50px;
+}
+
+.tag-components > .tag-component {
+	background-color: #1f1f1f;
+	border-radius: 3px;
+	padding: 3px 12px;
+	height: 20px;
+	font-size: 13px;
+	display: grid;
+	place-items: center;
+	font-weight: 600;
+}
+
+.tag-type-1 { color: #1c6de1; }
+.tag-type-2 { color: #1b8e59; }
+.tag-type-3 { color: #ca801c; }
+.tag-type-4 { color: #cd5246; }
+
+
+
+/* Loader component */
+.loader-component {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 360px;
+}
+
+.loader-component > .loader {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.loader-component > .loader:before {
+	content: '';
+	position: relative;
+	box-sizing: border-box;
+	display: block;
+	margin: auto;
+	height: 40px;
+	width: 40px;
+	border: 6px solid #193154;
+	border-top: 6px solid #1c6de1;
+	border-radius: 50%;
+	animation: loader-spin 1200ms linear infinite;
+}
+
+@keyframes loader-spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+/* Filter component */
+.filter-component {
+	background-color: #131313;
+	border-radius: 8px;
+	width: 320px;
+}
+
+.filter-component > .main-content {
+	margin: .5rem;
+}
+
+.main-content > .main-title {
+	font-weight: 500;
+	color: #cdcdcd;
+	margin: 1.3rem .75rem;
+}
+
+.main-content > ul {
+	list-style: none;
+	padding: 0;
+	overflow-y: auto;
+	max-height: 200px;
+	scroll-behavior: smooth;
+	margin: .75rem;
+}
+
+.main-content > ul::-webkit-scrollbar {
+	width: 4px;
+}
+
+.main-content > ul::-webkit-scrollbar-thumb {
+	background-color: #262626;
+	border-radius: 8px;
+}
+
+.main-content > ul > li {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	color: #a0a0a0;
+	margin-bottom: 1.5rem;
+}
+
+.filter-component > .main-footer {
+	border-top: 1px solid #26262660;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.main-footer > .select-all {
+	color: #d3d3d3;
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.main-footer > .reset-button {
+	color: #1c6de1;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+
+/* Star component */
+.star-component {
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	gap: .25rem;
+}
+
+.star {
+	display: grid;
+	place-items: center;
+	color: #676767;
+	font-size: 30px;
+	transition: all 150ms;
+}
+
+.star:hover {
+	color: #e7b315;
+	scale: 1.2;
+	transition: all 150ms;
+}
+
+.star:before {
+	content: '\2605';
+}
+
+.star-component > .star:hover ~ .star {
+	color: #e7b31587;
+	transition: all 250ms;
+}

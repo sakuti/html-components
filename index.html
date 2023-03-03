@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boilerplate</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="main-container">
+		<div class="check-components">
+			<div class="toggler-component">
+				<div class="toggler-title">Label</div>
+				<input type="checkbox" id="toggler" class="toggler-hidden">
+				<label for="toggler" class="toggler"></label>
+			</div>
+
+			<div class="checkbox-component">
+				<input type="checkbox" id="checkbox" class="checkbox-hidden">
+				<label for="checkbox" class="checkbox"></label>
+				<div class="checkbox-title">Label</div>
+			</div>
+
+			<div class="radio-component">
+				<input type="checkbox" id="radio" class="radio-hidden">
+				<label for="radio" class="radio"></label>
+				<div class="radio-title">Label</div>
+			</div>
+		</div>
+
+		<div class="progress-component" style="--p: 50;">
+			<div class="progress-bar"></div>
+			<div class="progress-title"></div>
+		</div>
+
+		<div class="tag-components">
+			<div class="tag-component tag-type-1">Tag tyyppi 1</div>
+			<div class="tag-component tag-type-2">Tag tyyppi 2</div>
+			<div class="tag-component tag-type-3">Tag tyyppi 3</div>
+			<div class="tag-component tag-type-4">Tag tyyppi 4</div>
+		</div>
+
+		<div class="loader-component">
+			<div class="loader"></div>
+
+			<script>
+				// Vain esimerkkiä varten, poista tuotantokoodista
+				// Tämä on vain animaation esittelyä varten
+				let element = document.querySelector(".progress-component")
+				let i = 0
+
+				setInterval(() => {
+					if(i === 100) i = 0;
+					element.style.setProperty("--p", i);
+					i++;
+				}, 100)
+			</script>
+		</div>
+
+		<div class="filter-component">
+			<div class="main-content">
+				<div class="main-title">Suodatusperuste:</div>
+				<ul>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-1" class="checkbox-hidden">
+							<label for="filter-1" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 1</div>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-2" class="checkbox-hidden">
+							<label for="filter-2" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 2</div>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-3" class="checkbox-hidden">
+							<label for="filter-3" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 3</div>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-4" class="checkbox-hidden">
+							<label for="filter-4" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 4</div>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-5" class="checkbox-hidden">
+							<label for="filter-5" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 5</div>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-6" class="checkbox-hidden">
+							<label for="filter-6" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 6</div>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox-component">
+							<input type="checkbox" id="filter-7" class="checkbox-hidden">
+							<label for="filter-7" class="checkbox"></label>
+							<div class="checkbox-title">Suodatus 7</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="main-footer">
+				<div class="select-all">Valitse kaikki</div>
+				<div class="reset-button">Nollaa</div>
+			</div>
+		</div>
+		
+		<div class="star-component">
+			<div class="star"></div>
+			<div class="star"></div>
+			<div class="star"></div>
+			<div class="star"></div>
+			<div class="star"></div>
+		</div>
+	</main>
+</body>
+</html>
